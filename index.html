@@ -11,6 +11,7 @@
         <h1>谷澤健太のページ</h1>
         <nav>
             <ul>
+                <li><a href="kanrisya.html" id="admin-link">管理者用</a></li>
                 <li><a href="#about">自己紹介</a></li>
                 <li><a href="#products">プロダクト</a></li>
                 <li><a href="#skill">技術</a></li>
@@ -222,6 +223,17 @@
         document.addEventListener("DOMContentLoaded", function() {
             const sections = document.querySelectorAll("section");
             const navLinks = document.querySelectorAll("nav ul li a");
+            const adminLink = document.querySelector("#admin-link");
+
+            adminLink.addEventListener("click", function(event) {
+                const password = window.prompt("管理者用ページのパスワードを入力してください");
+                if (password !== "osashimi") {
+                    event.preventDefault();
+                    if (password !== null) {
+                        window.alert("パスワードが正しくありません");
+                    }
+                }
+            });
             
             window.addEventListener("scroll", function() {
                 let current = "";
